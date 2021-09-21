@@ -1,0 +1,64 @@
+*{
+     font-family: 'Poppins', sans-serif;
+     margin: 0;
+     padding: 0;
+}
+header{
+     height: 50vh;
+     background: #FC466B;  /* fallback for old browsers */
+     background: -webkit-linear-gradient(to right, #3F5EFB, #FC466B);  /* Chrome 10-25, Safari 5.1-6 */
+     background: linear-gradient(to right, #3F5EFB, #FC466B); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+h1.site-heading{
+     font-size: 5rem;
+     font-weight: 800;
+}
+/* TYPOGRAPHY */
+h5{
+     font-weight: 300;
+}
+/* posts */
+span{
+     color:  #9846fc;
+}
+/* featured img */
+p .text-muted{
+     color: blue;
+}
+.featured-img{
+     width: 100%;
+     padding-bottom: 20px;
+}
+/* FOOTER */
+footer{
+     background: #000000;  /* fallback for old browsers */
+     background: -webkit-linear-gradient(to right, #434343, #000000);  /* Chrome 10-25, Safari 5.1-6 */
+     background: linear-gradient(to right, #434343, #000000); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+footer .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.1);
+    margin-top: 3em;
+    
+}
+/* FOR RECENT ARTICLES IN post_detail.html */
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+.row{
+     display: flex;
+
+}
+.column {
+  float: left;
+  width: 33.3%;
+  margin-bottom: 16px;
+  padding: 0 20px;
+  
+}
+
+/* SIDE BAR */
+div .alert{
+     background-color: #5e3edc;
+     color: #fff;
+}

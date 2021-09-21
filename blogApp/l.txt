@@ -1,0 +1,5 @@
+category is where a post falls 
+and tag belongs in category
+if post belongs to health category
+also giv it a  tag of life style, mental health , exercise
+

@@ -1,0 +1,39 @@
+{% extends 'blogapp/base.html' %}
+{% load static %}
+{% load humanize %}
+{% block body %}
+    
+     <div class="container">
+          <div class="row">
+               <!-- blog entries columns -->
+               <div class="col-md-8 mt-3 left">
+                    
+                    {% for p in cat_posts.set_all %}
+                    <h6>{{p.post_in_category}}</h6>
+                    <div class="card mb-4">
+                         <div class="card-body">
+                              <h2 class="card-title">{{p.title}}</h2><span>20 mins Read</span>
+                              <p class="card-text text-muted h6"> {{p.author}} | <span>{{ post.created_on |naturaltime}}</span> </p>
+                              <p class="card-text">{{p.content| slice:":200" | safe}}</p>
+                              <a href="{%url 'post_detail' post.slug %}" class="btn btn-primary">Read More &rarr;</a>          
+                         </div>
+                    </div>
+                    {% endfor %}
+               </div>
+          </div>
+          
+     </div>
+      {% if is_paginated %}
+     <nav aria-label="Page navigation conatiner">
+          <ul class="pagination justify-content-center">
+               {%if page_obj.has_previous %}
+               <li><a href="?page={{page_obj.previous_page_number}}" class="page-link">&laquo; PREV</a></li>
+               {% endif %}
+               {% if page_obj.has_next %}
+               <li><a href="?page={{page_obj.next_page_number}}" class="page-link">&raquo; NEXT</a></li>
+               {%endif%}
+          </ul>
+     </nav>
+     {% endif %}
+
+{% endblock %}

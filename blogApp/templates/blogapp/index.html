@@ -1,0 +1,63 @@
+{% extends 'blogapp/base.html' %}
+{% load static %}
+{% load humanize %}
+{% block body %}
+     <header class="masthead">
+          <div class="overlay"></div>
+          <div class="container">
+               <div class="row">
+                    <div class="col-md-8 col-md-10 mx-auto">
+                         <div class="site-heading">
+                              <h1 class="site-heading my-4 mt-3 text-white">Welcome to my awesome Blog</h1>
+                         </div>
+                    </div>
+               </div>
+          </div>
+     </header> 
+     <div class="container">
+          <div class="row">
+               <!-- blog entries columns -->
+               <div class="col-md-8 mt-3 left">
+                    {% for post in post_list %}
+                    <div class="card mb-4">
+                         <div class="card-body">
+                              <h6>{{post.comments.count}} comments</h6>
+                              <h2 class="card-title">{{post.title}}</h2><span>20 mins Read</span>
+                              <p class="card-text text-muted h6"> {{post.author}} | <span>{{ post.created_on |naturaltime}}</span> </p>
+                              <p class="card-text">{{post.content| slice:":200" | safe}}</p>
+                              <a href="{%url 'post_detail' post.slug %}" class="btn btn-primary">Read More &rarr;</a>          
+                         </div>
+                    </div>
+                    {% endfor %}
+               </div>
+               {% block sidebar %} {% include 'blogapp/sidebar.html' %} {% endblock sidebar %}
+          </div>
+          <div class="card my-4">
+               <h5 class="card-header">Categories</h5>
+               <div class="card-body">
+                    <p class="card-text">these</p>
+                         {% for post in post_list%}
+                             <h6> {{post.post_in_category}}</h6>
+                         {% endfor %}
+
+                         
+                          
+                    </div>
+               </div>
+          </div>  
+          
+     </div>
+      {% if is_paginated %}
+     <nav aria-label="Page navigation conatiner">
+          <ul class="pagination justify-content-center">
+               {%if page_obj.has_previous %}
+               <li><a href="?page={{page_obj.previous_page_number}}" class="page-link">&laquo; PREV</a></li>
+               {% endif %}
+               {% if page_obj.has_next %}
+               <li><a href="?page={{page_obj.next_page_number}}" class="page-link">&raquo; NEXT</a></li>
+               {%endif%}
+          </ul>
+     </nav>
+     {% endif %}
+
+{% endblock %}
