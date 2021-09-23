@@ -1,0 +1,51 @@
+{% extends 'blogapp/base.html' %}
+{% load static %}
+{% load humanize %}
+     {% block title %}
+          catlist
+     {% endblock %}
+{% block body %}
+     <header class="masthead">
+          <div class="overlay"></div>
+          <div class="container">
+               <div class="row">
+                    <div class="col-md-8 col-md-10 mx-auto">
+                         <div class="site-heading">
+                              <h1 class="site-heading my-4 mt-3 text-white">{{catlist.cat}} posts</h1>
+                         </div>
+                    </div>
+               </div>
+          </div>
+     </header> 
+     <div class="container">
+          <div class="row">
+               <!-- blog entries columns -->
+               <div class="col-md-8 mt-3 left">
+                    {% if catlist.posts %}
+                    {% for post in catlist.posts %}
+                    <div class="card mb-4">
+                         <a href="{{post.get_absolute_url}}">
+                         <div class="card-body">
+                              <h2 class="card-title">{{post.title}}</h2><span>20 mins Read</span>
+                              <p class="card-text text-muted h6"> {{post.author}} | <span>{{ post.created_on |naturaltime}}</span> </p>
+                              <p class="card-text">{{post.content| slice:":200"}}</p>
+                              <a href="{%url 'post_detail' post.slug %}" class="btn btn-primary">Read More &rarr;</a>          
+                              <small class="text-muted">9 mins</small>
+                         </div>
+                         </a>
+                    </div>
+                    {% endfor %}
+                    {% else %}
+                         <p>No posts yet</p>
+                    {% endif %}
+                    <h4>Other Related Posts <span>{{catlist.posts.count}}</span></h4>
+                    {% if catlist.posts %} 
+                         {% for post in catlist.posts %}
+                              <a href="{%url 'post_detail' post.slug %}">{{post.title}}</a>          
+                         {%endfor%}
+                    {% endif %}
+               </div>
+          </div>
+     </div>
+
+{% endblock %}

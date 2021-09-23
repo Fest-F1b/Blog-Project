@@ -1,0 +1,48 @@
+{% block sidebar %}
+{% load static %}
+     {% load crispy_forms_tags %}
+     <div class="col-md-4 float-right">
+          {% if post_list %}
+          <div class="card my-4">
+               <h5 class="card-header">About Us</h5>
+               <div class="card-body">
+                    <p class="card-text">We provide relevant information about Trending Tech news , Innovations and startups as well as home based news tech culture and 
+                         tradition
+                    </p>
+                    <p><em style="color: lime;">Social networks going here</em></p>
+               </div>
+          </div>
+          {% else %}
+          <div class="card my-4">
+               <h5 class="card-header">About Us</h5>
+               <div class="card-body">
+                    <p class="card-text">Join our mailing list to receive news, tips, strategies,and inspiration you Need </p>
+                    {% if messages %}
+                    {% for message in messages%}
+                         <div class="alert alert-{{message.tags}}">
+                              {{message}}
+                         </div>
+                    {% endfor %}
+                    {% endif %}
+                    <form method="POST">
+                         {{ subscriber_form | crispy}}
+                         {% csrf_token %}
+                         <button class="btn btn-primary" type="submit">subscribe</button>
+                    </form> 
+               </div>
+          </div>
+          {%endif%}
+          <!-- categories -->
+          <div class="card my-4">
+               <h5 class="card-header">Categories</h5>
+               <div class="card-body">
+                    <p class="card-text">Check out Other related post Categories</p>
+                    <div class="bottom-top pt-3" style="background-color: #FC466B;">
+                         {% for category in category_list %}
+                         <a class="dropdown-item" href="/category/{{category.name}}" style="transition: 4s ease;">{{category.name| title}}</a>
+                         {% endfor %} 
+                    </div>
+               </div>
+          </div>     
+     </div>
+{% endblock sidebar %}
