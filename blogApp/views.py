@@ -4,10 +4,17 @@ from django.db.models.aggregates import Count
 from django.db.models.expressions import F
 from django.db.models.query import QuerySet
 from django.shortcuts import get_object_or_404, render
+<<<<<<< HEAD
 from django.views.generic import CreateView, UpdateView, DeleteView, DetailView,ListView
 from django.views.generic.base import TemplateResponseMixin
 from django.views.generic.edit import DeleteView
 from .models import Category_post, Comment, Post
+=======
+from django.views.generic import CreateView, UpdateView, DeleteView, DetailView
+from django.views.generic.base import TemplateResponseMixin
+from django.views.generic.edit import DeleteView
+from .models import Comment, Post
+>>>>>>> fbc4e48c5a973e4301bd1924a9f9249946f9b4f5
 from .forms import CommentForm, SubscribeForm
 from django.contrib import messages
 from django.views import generic
@@ -16,13 +23,19 @@ import datetime
 
 
 # Create your views here.
+<<<<<<< HEAD
 
 class PostList(generic.ListView):
     queryset = Post.objects.filter(status=1).order_by('created_on')[:6]
+=======
+class PostList(generic.ListView):
+    queryset = Post.objects.filter(status=1).order_by('-created_on')[:6]
+>>>>>>> fbc4e48c5a973e4301bd1924a9f9249946f9b4f5
     template_name = 'blogapp/index.html'
     paginate_by = 5
 
 
+<<<<<<< HEAD
 def latest_list(request):
     latest_list = Post.objects.filter(created_on__month=9).order_by('-created_on')[:3]
     context = {
@@ -31,6 +44,8 @@ def latest_list(request):
     return context
 
 
+=======
+>>>>>>> fbc4e48c5a973e4301bd1924a9f9249946f9b4f5
 def post_detail(request, slug):
      template_name = 'blogapp/post_detail.html'
      post = get_object_or_404(Post, slug=slug)
@@ -61,6 +76,7 @@ def post_detail(request, slug):
 
 
 def l_view(request):
+<<<<<<< HEAD
      la_posts = Post.objects.filter(
           created_on__month=9).order_by('-created_on')[:6]
      context = {
@@ -88,3 +104,15 @@ def category_list(request):
           "category_list": category_list,
      }
      return context
+=======
+    la_posts = Post.objects.filter(
+        created_on__month=9).order_by('-created_on')[:6]
+    return render(request, "blogapp/latest.html", {'la_posts': la_posts})
+
+
+def category(request):
+     cat_posts = Post.objects.filter(post_in_category=all,status =1).order_by('-created_on')[:6]
+     template_name = 'blogapp/category.html'
+     return render (request,template_name,{'cat_posts':cat_posts})
+     
+>>>>>>> fbc4e48c5a973e4301bd1924a9f9249946f9b4f5

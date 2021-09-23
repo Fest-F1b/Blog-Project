@@ -23,4 +23,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('tinymce/', include('tinymce.urls')),
     path('', include('blogApp.urls'))
+<<<<<<< HEAD
+=======
+
+>>>>>>> fbc4e48c5a973e4301bd1924a9f9249946f9b4f5
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

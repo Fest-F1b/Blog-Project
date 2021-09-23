@@ -1,15 +1,24 @@
 from django.contrib import admin
 from django.contrib.admin.decorators import action
+<<<<<<< HEAD
 from.models import(Post, Comment, Subscribe, Category_post
                    )
 @admin.register(Category_post)
 class CategoryAdmin(admin.ModelAdmin):
     list_display = ('name',)
+=======
+from.models import(Post, Comment, Subscribe
+                   )
+>>>>>>> fbc4e48c5a973e4301bd1924a9f9249946f9b4f5
 
 
 class PostAdmin(admin.ModelAdmin):
     list_display = ('title', 'slug', 'status', 'created_on')
+<<<<<<< HEAD
     list_filter = ("status",)
+=======
+    list_filter = ("status","post_in_category")
+>>>>>>> fbc4e48c5a973e4301bd1924a9f9249946f9b4f5
     search_fields = ['title', 'content', ]
     prepopulated_fields = {'slug': ('title',)}
 
