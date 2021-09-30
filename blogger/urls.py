@@ -24,3 +24,7 @@ urlpatterns = [
     path('tinymce/', include('tinymce.urls')),
     path('', include('blogApp.urls'))
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+admin.site.site_header = "Fester Blog Administration"
+admin.site.site_title = "festerm Admin"
+admin.site.index_title = "festerm"

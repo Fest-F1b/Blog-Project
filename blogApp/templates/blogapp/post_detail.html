@@ -14,7 +14,9 @@
                     <p class="text-muted"> {{ post.author }} | <span>{{ post.created_on| naturaltime }}</span> </p>                   
                     <img class="featured-img" src="{{ post.postImg.url}}" alt="ll"> 
                     <p class="card-text">{{post.content|safe}}</p>
-                    <button>like</button>|share
+                    <i class="fas fa-heart"></i>
+                    <i class="fas fa-share"></i>
+
                </div>
           </div>
           {% block sidebar %} {% include 'blogapp/sidebar.html' %} {% endblock sidebar %}     

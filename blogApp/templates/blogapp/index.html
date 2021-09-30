@@ -21,7 +21,7 @@
                     {% for post in post_list %}
                     <div class="card mb-4">
                          <div class="card-body">
-                              <h6>{{post.comments.count}} comments</h6>
+                              <h6>{{post.comments.count}} comments</h6> <span><i class="fas fa-heart"></i></span>
                               <h2 class="card-title">{{post.title}}</h2><span>20 mins Read</span>
                               <p class="card-text text-muted h6"> {{post.author}} | <span>{{ post.created_on |naturaltime}}</span> </p>
                               <a href="{%url 'post_detail' post.slug %}" class="btn btn-primary">Read More &rarr;</a>          
