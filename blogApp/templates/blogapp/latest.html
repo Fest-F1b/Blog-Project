@@ -1,0 +1,26 @@
+{% extends 'blogapp/base.html' %}
+{% load static %}
+{% load humanize %}
+{% block body %}
+    
+     <div class="container">
+          <div class="row">
+               <!-- blog entries columns -->
+               <div class="col-md-8 mt-3 left">
+                    
+                    {% for p in la_posts %}
+                    <div class="card mb-4">
+                         <div class="card-body">
+                              {{p.post_in_category}}
+                              <h2 class="card-title">{{p.title}}</h2><span>20 mins Read</span>
+                              <p class="card-text text-muted h6"> {{p.author}} | <span>{{ post.created_on |naturaltime}}</span> </p>
+                              <p class="card-text">{{p.content| slice:":200" | safe}}</p>
+                         </div>
+                    </div>
+                    {% endfor %}
+               </div>
+          </div>
+          
+     </div>
+
+{% endblock %}

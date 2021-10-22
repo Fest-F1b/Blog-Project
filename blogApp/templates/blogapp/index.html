@@ -24,6 +24,10 @@
                               <h6>{{post.comments.count}} comments</h6> <span><i class="fas fa-heart"></i></span>
                               <h2 class="card-title">{{post.title}}</h2><span>20 mins Read</span>
                               <p class="card-text text-muted h6"> {{post.author}} | <span>{{ post.created_on |naturaltime}}</span> </p>
+<<<<<<< HEAD
+=======
+                              <p class="card-text">{{post.content| slice:":200" | safe}}</p>
+>>>>>>> fbc4e48c5a973e4301bd1924a9f9249946f9b4f5
                               <a href="{%url 'post_detail' post.slug %}" class="btn btn-primary">Read More &rarr;</a>          
                          </div>
                     </div>
@@ -32,11 +36,23 @@
                {% block sidebar %} {% include 'blogapp/sidebar.html' %} {% endblock sidebar %}
           </div>
           <div class="card my-4">
+<<<<<<< HEAD
                <h5 class="card-header">Latest posts</h5>
                <div class="card-body">
                          {% for post in latest_list %}
                               <a href="{%url 'post_detail' post.slug %}">{{post.title}}  <span>{{post.category}}</span></a><br>
                          {% endfor %}
+=======
+               <h5 class="card-header">Categories</h5>
+               <div class="card-body">
+                    <p class="card-text">these</p>
+                         {% for post in post_list%}
+                             <h6> {{post.post_in_category}}</h6>
+                         {% endfor %}
+
+                         
+                          
+>>>>>>> fbc4e48c5a973e4301bd1924a9f9249946f9b4f5
                     </div>
                </div>
           </div>  

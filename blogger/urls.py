@@ -29,6 +29,7 @@ from django.contrib.auth import views as auth_views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('tinymce/', include('tinymce.urls')),
+<<<<<<< HEAD
     path('', include("django.contrib.auth.urls")),
     path('register/', user_views.register, name='register'),
     path('login/', auth_views.LoginView.as_view(template_name='users/login.html')),
@@ -48,6 +49,13 @@ urlpatterns = [
             template_name='registration/password-reset_confirm.html'), name='password_reset_confirm'),
     path('', include('blogApp.urls')),
 
+=======
+    path('', include('blogApp.urls'))
+<<<<<<< HEAD
+=======
+
+>>>>>>> fbc4e48c5a973e4301bd1924a9f9249946f9b4f5
+>>>>>>> 7a219ca7f53d796c422471c6d1f970675bbae3bb
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 admin.site.site_header = "Fester Blog Administration"

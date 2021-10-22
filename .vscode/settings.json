@@ -2,7 +2,11 @@
      "python.testing.unittestArgs": [
           "-v",
           "-s",
+<<<<<<< HEAD
           "./blogApp",
+=======
+          "./projectenv",
+>>>>>>> fbc4e48c5a973e4301bd1924a9f9249946f9b4f5
           "-p",
           "*test.py"
      ],

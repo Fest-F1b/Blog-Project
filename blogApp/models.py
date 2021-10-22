@@ -14,6 +14,7 @@ from tinymce import models as tinymce_models
 
 
 class Category_post(models.Model):
+<<<<<<< HEAD
     name = models.CharField(max_length=100)
 
     def __str__(self) -> str:
@@ -22,6 +23,27 @@ class Category_post(models.Model):
     def get_absolute_url(self):
         return reverse("home")
 
+=======
+     name = models.CharField(max_length=100)
+    
+     def __str__(self) -> str:
+          return self.name
+
+     def get_absolute_url(self):
+          return reverse("home")
+
+
+HEALTH = 'Health'
+LIFESTYLE = 'Life style'
+WEB_DEVELOPMENT = 'Web development'
+PROGRAMMING = 'Programming'
+POST_IN_CATEGORY_CHOICES = [
+     (HEALTH, 'Health'),
+     (LIFESTYLE, 'Lifestyle'),
+     (WEB_DEVELOPMENT, 'Web development'),
+     (PROGRAMMING, 'Programming')
+]
+>>>>>>> fbc4e48c5a973e4301bd1924a9f9249946f9b4f5
 
 STATUS = (
     (0, "Draft"),
@@ -39,8 +61,14 @@ class Post (models.Model):
      status = models.IntegerField(choices=STATUS, default=0)
      postImg = models.FileField(
           upload_to="images/", null=True, blank=True, verbose_name="Post Image")
+<<<<<<< HEAD
      category = models.ForeignKey(
           Category_post, on_delete=models.CASCADE, default=True, null=True)
+=======
+     post_in_category = models.CharField(max_length=100, choices=POST_IN_CATEGORY_CHOICES,
+                                         default=PROGRAMMING, null=False)
+
+>>>>>>> fbc4e48c5a973e4301bd1924a9f9249946f9b4f5
 
      class Meta:
           ordering = ['-created_on']

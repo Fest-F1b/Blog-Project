@@ -33,16 +33,55 @@
           </div>
           {%endif%}
           <!-- categories -->
+<<<<<<< HEAD
+=======
+          {% if post_list %}
+         
+          <div class="card my-4">
+               <h5 class="card-header">Categories</h5>
+               <div class="card-body">
+                    <p class="card-text">Check out our topics</p>
+                    
+                          {% if post_list%}
+                          <div class="bottom-top pt-3" style="background-color: #FC466B;" > <p>{{post.post_in_category}}</p></div>
+                          {% endif%}
+                         
+                    </div>
+               </div>
+          </div>
+         
+          {% else %}
+>>>>>>> fbc4e48c5a973e4301bd1924a9f9249946f9b4f5
           <div class="card my-4">
                <h5 class="card-header">Categories</h5>
                <div class="card-body">
                     <p class="card-text">Check out Other related post Categories</p>
                     <div class="bottom-top pt-3" style="background-color: #FC466B;">
+<<<<<<< HEAD
                          {% for category in category_list %}
                          <a class="dropdown-item" href="/category/{{category.name}}" style="transition: 4s ease;">{{category.name| title}}</a>
                          {% endfor %} 
                     </div>
                </div>
           </div>     
+=======
+                        <p>{{post.post_in_category}}</p>
+                    </div>
+               </div>
+          </div>
+          {% endif %}
+          {% if latest_list %}
+               <div class="card my-4">
+               <h5 class="card-header">latest posts</h5>
+               <div class="card-body">
+                    <p class="card-text">Check out Other related post Categories</p>
+                    <div class="bottom-top pt-3" style="background-color: #FC466B;">
+                        <p>{{post.post_in_category}}</p>
+                    </div>
+               </div>
+          </div>
+          {%endif%}
+          
+>>>>>>> fbc4e48c5a973e4301bd1924a9f9249946f9b4f5
      </div>
 {% endblock sidebar %}

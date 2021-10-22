@@ -30,6 +30,7 @@ p .text-muted{
      width: 100%;
      padding-bottom: 20px;
 }
+<<<<<<< HEAD
 /* NAVIGATION BAR */
 a img.account-img{
      width: 100%;
@@ -39,6 +40,8 @@ a img.account-img{
 p.categories{
      color: red;
 }
+=======
+>>>>>>> fbc4e48c5a973e4301bd1924a9f9249946f9b4f5
 /* FOOTER */
 footer{
      background: #000000;  /* fallback for old browsers */
@@ -70,4 +73,8 @@ footer .footer-bottom {
 div .alert{
      background-color: #5e3edc;
      color: #fff;
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> fbc4e48c5a973e4301bd1924a9f9249946f9b4f5
