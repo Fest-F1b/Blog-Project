@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.humanize',
     'blogApp',
+    'users',
     'crispy_forms',
     'tinymce',
 ]
@@ -135,6 +136,12 @@ MEDIA_URL = '/media/'
 
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+# Authentication
+LOGIN_REDIRECT_URL = 'home'
+LOGIN_URL = 'login'
+LOGOUT_REDIRECT_URL = 'login'
+LOGOUT_URL = 'logout'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field

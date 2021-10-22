@@ -1,7 +1,9 @@
 from django.contrib import admin
 from django.contrib.admin.decorators import action
-from.models import(Post, Comment, Subscribe, Category_post
-                   )
+from.models import *
+
+
+
 @admin.register(Category_post)
 class CategoryAdmin(admin.ModelAdmin):
     list_display = ('name',)

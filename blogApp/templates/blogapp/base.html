@@ -65,13 +65,28 @@
                     </ul>
                </li>
                <li class="nav-item">
-                    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                    <a class="nav-link " href="#" tabindex="-1" aria-disabled="true">Disabled</a>
                </li>
+               {% if user.is_authenticated %}
+                    <li class="nav-item">
+                         <a class="nav-link" href="#" style="text-transform: capitalize;">{{user.username}}</a>
+                    </li>
+                    <li class="nav-item">
+                         <a class="nav-link" href="#"><img class="rounded-circle account-img" src="{{user.profile.image.url}}" alt="Update Your Profile" style="width: 50px;"></a>
+                    </li>
+                    <li class="nav-item">
+                         <a class="nav-link" href="{% url 'profp' %}">profile</a>
+                    </li>
+                    <li class="nav-item">
+                         <a class="nav-link" href="{%url 'logout'%}">Log out</a>
+                    </li>
+                    {%else%}
+                         <li class="nav-item">
+                              <a class="nav-link" href="{% url 'login'%}"><em style="color: crimson;">Your Not Logged In! </em> Sign Up</a>
+                         </li>
+                    {% endif %}
                </ul>
-               <form class="d-flex">
-               <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-               <button class="btn btn-outline-success" type="submit">Search</button>
-               </form>
+               
           </div>
           </div>
      </nav>

@@ -1,0 +1,26 @@
+{% extends 'blogapp/base.html'%}
+{% load crispy_forms_tags %}
+
+{% block body %}
+     <div class="container-fluid">
+          <a href="{%url 'home'%}" class="btn btn-primary">Go Back</a>
+     </div>
+    <div class="container">
+          <div class="jumbotron">
+               <h1>USER PROFILE</h1>
+               <div class="media">
+                    <img class="rounded-circle account-img" style="width:100px" src="{{user.profile.image.url}}">
+                    <div class="media-body">
+                         <h2 class="account-heading">{{user.username}}</h2>
+                         <p class="text-secondary">{{user.email}}</p>
+                    </div>
+               </div>
+               <div class="border-top pt-3">
+                    <button class="btn btn-primary">Edit Profile</button>
+                    <a href="{%url 'logout' %}" class="btn btn-danger">Log out</a>
+               </div>
+          </div>
+    </div>
+    
+
+{% endblock%}

@@ -9,6 +9,7 @@ from django.views.generic.base import TemplateResponseMixin
 from django.views.generic.edit import DeleteView
 from .models import Category_post, Comment, Post
 from .forms import CommentForm, SubscribeForm
+from users.models import Profile
 from django.contrib import messages
 from django.views import generic
 from django.urls import reverse_lazy
@@ -88,3 +89,10 @@ def category_list(request):
           "category_list": category_list,
      }
      return context
+
+
+# PROFILE VIEW
+# view for user profile page
+def profp(request):
+    userp = Profile.objects.all()
+    return render(request, 'blogapp\profile.html', ({'userp': userp}))
